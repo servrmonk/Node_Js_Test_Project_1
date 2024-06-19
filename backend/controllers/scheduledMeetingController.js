@@ -4,7 +4,7 @@ const ScheduledMeetingControllers = {
     getScheduledMeetings: async (req, res) => {
         try {
             const meetings = await ScheduledMeeting.findAll();
-            console.log("meetings in getScheduledMeetings ", meetings);
+            // console.log("meetings in getScheduledMeetings ", meetings);
             res.json(meetings);
         } catch (error) {
             console.log("Error in fetching meetings", error);
@@ -14,7 +14,7 @@ const ScheduledMeetingControllers = {
 
     createScheduledMeeting: async (req, res) => {
         const { mentorName, candidateName, joinLink, time, slotId, userId } = req.body;
-        console.log("Req.body in createscheduledMeeting ",req.body);
+        // console.log("Req.body in createscheduledMeeting ",req.body);
         try {
             const newMeeting = await ScheduledMeeting.create({ mentorName, candidateName, joinLink, time, slotId, userId });
             res.status(201).json(newMeeting);

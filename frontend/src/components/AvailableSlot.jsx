@@ -7,36 +7,7 @@ import UserDetails from "./UserDetails";
 function AvailableSlot() {
   const { slotDetail, setSlotDetails, open, setOpen, slotMentorData } =
     useContext(SlotBook);
-
-    // using slotdetails instead of static array 
-  /*let arr = [
-    {
-      name: "Rohan",
-      time: "2:00pm",
-      slot: 5,
-      slotId: Math.floor(Math.random() * 43.5),
-    },
-    {
-      name: "Raju",
-      time: "2:20pm",
-      slot: 2,
-      slotId: Math.floor(Math.random() * 93.4),
-    },
-    {
-      name: "Shyam",
-      time: "2:40pm",
-      slot: 6,
-      slotId: Math.floor(Math.random() * 29),
-    },
-    {
-      name: "Mohan",
-      time: "2:50pm",
-      slot: 9,
-      slotId: Math.floor(Math.random() * 69),
-    },
-  ];
-  */
-
+// console.log("slotDetail in availableslot is ",slotDetail);
   function toggle(mentor) {
     setOpen(!open); // Toggles the state to show/hide UserDetails
     // console.log("mentor in toggle ", mentor);
