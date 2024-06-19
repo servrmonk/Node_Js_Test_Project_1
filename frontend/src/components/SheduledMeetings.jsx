@@ -30,7 +30,7 @@ export default function ScheduledMeetings() {
                 Mentor Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Your Name
+                Candidate Name
               </th>
               <th scope="col" className="px-6 py-3">
                 Meet Link

@@ -3,22 +3,23 @@ import React, { createContext, useState } from "react";
 const SlotBook = createContext();
 
 export const SlotBookProvider = ({ children }) => {
-  const [slotDetail, setSlotDetails] = useState([]);
-  const [inputUserData, setInputUserData] = useState("");
-  const [mentorData, setMentorData] = useState("");
+  const [slotDetail, setSlotDetails] = useState([]); //FIRST TIME WHEN SLOT DETAIL IS FILLED
+  // AND THEN IN SLOTDETAIL IS RENDERED IN AVAILABLE SLOT 2ND PART
+  const [mentorData, setMentorData] = useState(""); //WHEN ANY ONE CLICKON 2ND PART THAN THE CURRENT MENTOR DATA WILL FILLED
+  const [inputUserData, setInputUserData] = useState(""); //THIS WILL TAKE NAME AND EMAIL OF THE POPPEDUP FORM
   const [open, setOpen] = useState(false); //FOR TOGGLE
-  const [scheduledMeet, setScheduledMeet] = useState([]);
+  const [scheduledMeet, setScheduledMeet] = useState([]); //THIS WILL COMBINE MENTOR DATA AND INTERUSERDATA AND DO scheduled meet
 
-  /* TO ADD SLOT FIRST TIME */
+  /* TO ADD SLOT FIRST TIME:NAME,SLOT QTY,TIME */
   const addSlot = (data) => {
     setSlotDetails((prevData) => [...prevData, data]);
   };
 
   console.log("SlotDetail in context is ", slotDetail);
-  console.log("Clicked Mentor data in context  ",mentorData);
-  console.log("scheduledMeet=> ",scheduledMeet);
+  console.log("Clicked Mentor data in context  ", mentorData);
+  console.log("scheduledMeet=> ", scheduledMeet);
 
-  /* USER DATA:  NAME AND EMAIL IN FORM */
+  /* USER DATA WHEN ANY ONE CLICK ON 2ND PART THE FORM WILL POPUP:  NAME AND EMAIL IN FORM */
   const userInputData = (data) => {
     setInputUserData(data);
   };
@@ -49,7 +50,7 @@ export const SlotBookProvider = ({ children }) => {
   };
   const deleteAndUpdate = (user) => {
     // Remove user from scheduledMeet
-    console.log("user in deland update ",user);
+    console.log("user in deland update ", user);
     setScheduledMeet((prevMeets) =>
       prevMeets.filter((meeting) => meeting.userId !== user.userId)
     );
