@@ -28,8 +28,8 @@ const AvailableSlotControllers = {
         const { id } = req.params;
         const { slot } = req.body;
         // console.log("id hai delslot me ",id);
-        // console.log("Req.params==>>",req.params);
-        // console.log("req.body delslot me ",req.body);
+        console.log("Req.params in update slot==>>",req.params);
+        console.log("req.body update slot ",req.body);
         // console.log("Available slot in updateslot ",AvailableSlot);
         try {
             const slotToUpdate = await AvailableSlot.findByPk(id);

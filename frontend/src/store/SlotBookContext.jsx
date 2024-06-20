@@ -36,7 +36,6 @@ export const SlotBookProvider = ({ children }) => {
   /* FOR SCHEDULED MEETING */
   const scheduledMeeting = (obj) => {
     // console.log("Obj in scheduledmeeting ", obj);
-
     // setScheduledMeet((prevData) => [...prevData, obj]);
 
     axios
@@ -112,20 +111,20 @@ export const SlotBookProvider = ({ children }) => {
       })
       .catch((error) => console.log("Error in Delete ", error));
 
-    // Check if the slot exists in slotDetail
     const slotExists = slotDetail.some((data) => data.slotId === user.slotId);
     console.log("Slot Exist => ", slotExists);
     console.log("user after slotExis ", user);
 
     if (slotExists) {
-      // Increase the slot quantity if it exists
-
       slotDetail.map((elm) => {
         if (elm.name == user.mentorName || elm.slotId == user.slotId) {
+          console.log("Element for slotexist and put ",elm)
+          console.log("user for slotexist and put ",user)
+
           console.log("yes elmname match ");
           axios
-            .put(`${url}/api/available-slots/${elm.id}`, {
-              slot: elm.slot+1,
+            .put(`${url}/api/available-slots/${user.id}`, {
+              slot: elm.slot + 1,
             })
             .then((res) => {
               console.log("Result in put update and delete ", res);
